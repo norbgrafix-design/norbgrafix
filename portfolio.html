@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio | NorbGrafix Graphic Design</title>
+  <meta name="description" content="Browse NorbGrafix graphic design work: branding, flyers, social media designs, posters and creative design.">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Favicon placeholder: uses your logo. Replace with a square favicon.png when you have one. -->
+  <link rel="icon" href="images/logo.png">
+
+  <!-- Fonts (Google Fonts). The site still works without them using system fonts. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="NorbGrafix, home">
+      <img src="images/logo.png" alt="NorbGrafix logo">
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle-bars" aria-hidden="true"></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul class="nav-links">
+        <li><a href="index.html"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg><span>Home</span></a></li>
+        <li><a href="portfolio.html" aria-current="page"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="16" rx="1"/><circle cx="9" cy="10" r="1.6"/><path d="M3 18l6-5 4 3 3-2 5 4"/></svg><span>Portfolio</span></a></li>
+        <li><a href="index.html#about"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg><span>About</span></a></li>
+        <li><a href="services.html"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 12.5l9 5 9-5"/><path d="M3 17l9 5 9-5"/></svg><span>Services</span></a></li>
+        <li><a href="contact.html"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 7 9-7"/></svg><span>Contact</span></a></li>
+        <li><a class="btn btn-cta" href="contact.html"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 5h16v11H9l-5 4z"/></svg><span>Let’s Work</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="section portfolio page-top" aria-labelledby="portfolio-title">
+      <div class="container">
+        <div class="portfolio-head">
+          <h1 class="section-title" id="portfolio-title">Portfolio</h1>
+          <div class="filters" role="group" aria-label="Filter portfolio by category">
+            <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="filter" data-filter="branding" aria-pressed="false">Branding</button>
+            <button type="button" class="filter" data-filter="flyers" aria-pressed="false">Flyers</button>
+            <button type="button" class="filter" data-filter="social-media" aria-pressed="false">Social Media</button>
+            <button type="button" class="filter" data-filter="posters" aria-pressed="false">Posters</button>
+            <button type="button" class="filter" data-filter="creative-design" aria-pressed="false">Creative Design</button>
+          </div>
+        </div>
+
+        <!--
+          HOW TO ADD MORE DESIGNS
+          1. Copy one whole <li class="work"> ... </li> block below.
+          2. Paste it at the end of the list (before </ul>).
+          3. Change the image path, alt text, data-category, data-caption and the label.
+          The filter and lightbox pick up new items automatically. No JavaScript changes needed.
+          data-category values: branding, flyers, social-media, posters, creative-design
+        -->
+        <ul class="gallery">
+          <li class="work" data-category="branding">
+            <button class="work-btn" type="button" data-caption="Branding">
+              <img src="images/Untitled-1.jpg" alt="Branding design by NorbGrafix, image 1" loading="lazy">
+            </button>
+            <p class="work-label">Branding</p>
+          </li>
+          <li class="work" data-category="posters">
+            <button class="work-btn" type="button" data-caption="Posters">
+              <img src="images/Coming soon.jpg" alt="Poster design by NorbGrafix, image 2" loading="lazy">
+            </button>
+            <p class="work-label">Posters</p>
+          </li>
+          <li class="work" data-category="flyers">
+            <button class="work-btn" type="button" data-caption="Flyers">
+              <img src="images/image6.jpg" alt="Flyer design by NorbGrafix, image 3" loading="lazy">
+            </button>
+            <p class="work-label">Flyers</p>
+          </li>
+          <li class="work" data-category="social-media">
+            <button class="work-btn" type="button" data-caption="Social Media">
+              <img src="images/G&G.jpg" alt="Social media design by NorbGrafix, image 4" loading="lazy">
+            </button>
+            <p class="work-label">Social Media</p>
+          </li>
+          <li class="work" data-category="creative-design">
+            <button class="work-btn" type="button" data-caption="Creative Design">
+              <img src="images/House party flyer.jfif" alt="Creative design by NorbGrafix, image 5" loading="lazy">
+            </button>
+          
+          </li>
+          <li class="work" data-category="branding">
+            <button class="work-btn" type="button" data-caption="Branding">
+              <img src="images/logo.png" alt="Branding design by NorbGrafix, image 6" loading="lazy">
+            </button>
+            <p class="work-label">Branding</p>
+          </li>
+          <li class="work" data-category="posters">
+            <button class="work-btn" type="button" data-caption="Posters">
+              <img src="images/rebrand.jpg" alt="Poster design by NorbGrafix, image 7" loading="lazy">
+            </button>
+            <p class="work-label">Posters</p>
+          </li>
+          <li class="work" data-category="flyers">
+            <button class="work-btn" type="button" data-caption="Flyers">
+              <img src="images/Muslim branding _ Islam Flyer _ Flyer design.jfif" alt="Flyer design by NorbGrafix, image 8" loading="lazy">
+            </button>
+            <p class="work-label">Flyers</p>
+          </li>
+          <li class="work" data-category="social-media">
+            <button class="work-btn" type="button" data-caption="Social Media">
+              <img src="images/party.jfif" alt="Social media design by NorbGrafix, image 9" loading="lazy">
+            </button>
+
+           <li class="work" data-category="branding">
+            <button class="work-btn" type="button" data-caption="Branding">
+              <img src="images/image7.jfif" alt="Branding design by NorbGrafix, image 1" loading="lazy">
+            </button>
+           
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="footer-brand" href="index.html" aria-label="NorbGrafix, home">
+        <img src="images/logo.png" alt="NorbGrafix logo">
+      </a>
+      <p>&copy; <span id="year">2026</span> NorbGrafix. All rights reserved.</p>
+      <a class="footer-top" href="#main">Back to top</a>
+    </div>
+  </footer>
+
+  <!-- Lightbox for portfolio previews -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Design preview" hidden>
+    <button class="lb-close" type="button" aria-label="Close preview">Close</button>
+    <figure class="lb-figure">
+      <img class="lb-img" id="lb-img" src="" alt="">
+      <figcaption class="lb-cap" id="lb-cap"></figcaption>
+    </figure>
+    <div class="lb-nav">
+      <button class="lb-prev" type="button" aria-label="Previous design">Previous</button>
+      <button class="lb-next" type="button" aria-label="Next design">Next</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
