@@ -44,6 +44,35 @@ var SITE = {
     ul.appendChild(li);
   });
   footer.insertBefore(ul, footer.firstChild);
+
+  // Desktop only: same icons in the header, next to the menu
+  var bar = document.querySelector('.bar');
+  if (bar) {
+    var topCss = document.createElement('style');
+    topCss.textContent =
+      '.social-top{display:none}' +
+      '@media(min-width:800px){' +
+      '.social-top{display:flex;gap:8px;list-style:none;margin:0 0 0 1rem;padding:0}' +
+      '.social-top a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;padding:0;border:1px solid rgba(255,255,255,.35);border-radius:50%}' +
+      '.social-top a:hover{border-color:#ffc93c;background:transparent}' +
+      '.social-top img{width:18px;height:18px;filter:invert(1)}' +
+      '.social-top svg{width:18px;height:18px}}';
+    document.head.appendChild(topCss);
+    var top = document.createElement('ul');
+    top.className = 'social-top';
+    top.setAttribute('aria-label', 'Contact and social links');
+    links.forEach(function (l) {
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = l.href;
+      a.setAttribute('aria-label', l.name);
+      if (l.href.indexOf('http') === 0) { a.target = '_blank'; a.rel = 'noopener'; }
+      a.innerHTML = l.svg ? l.svg : '<img src="' + icons + l.img + '.svg" alt="" width="18" height="18">';
+      li.appendChild(a);
+      top.appendChild(li);
+    });
+    bar.appendChild(top);
+  }
 })();
 
 // Mobile menu extras: lock page scroll, close on link tap or Esc

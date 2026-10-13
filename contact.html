@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <link rel="icon" href="images/logo.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0b0a14">
+<meta name="theme-color" content="#000000">
 <title>Contact | NorbGrafix Graphic Design</title>
 <meta name="description" content="Contact NorbGrafix to start your branding, flyer, poster or social media design project.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +25,7 @@ header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px s
 nav ul{list-style:none;margin:0;padding:0;display:none;flex-direction:column;border-top:1px solid var(--line)}
 nav ul.open{display:flex}
 nav a{display:block;padding:.9rem 1rem;text-decoration:none;font-weight:500;border-bottom:1px solid var(--line)}
-nav a[aria-current="page"]{color:var(--accent-text)}
+nav a[aria-current="page"]{color:var(--yellow)}
 nav a.cta{background:var(--accent);color:#fff;font-weight:600}
 @media(min-width:800px){.menu-btn{display:none}.bar{gap:2rem}nav{margin-left:auto}nav ul{display:flex;flex-direction:row;align-items:center;gap:.25rem;border:0}nav a{border:0;padding:.5rem .9rem;border-radius:999px}nav a:hover{background:var(--surface)}nav a.cta{margin-left:.5rem}nav a.cta:hover{background:var(--accent-hover)}}
 main{max-width:1200px;margin:0 auto;padding:0 1rem 3rem}
@@ -64,10 +64,10 @@ input:focus,select:focus,textarea:focus{border-color:var(--text)}
 .note{color:var(--muted);font-size:.9rem;margin:.9rem 0 0}
 
 /* ===== Theme: violet + yellow ===== */
-:root{--bg:#0b0a14;--surface:#181530;--line:#2c2850;--muted:#b4b0c8;--violet:#5b3df5;--yellow:#ffc93c;--deep:#1a1050}
+:root{--bg:#000;--surface:#151515;--line:#2a2a2a;--muted:#a8a49c;--violet:#000;--yellow:#ffc93c;--deep:#000}
 .band{background:var(--violet);box-shadow:0 0 0 100vmax var(--violet);clip-path:inset(0 -100vmax);color:#fff;margin-bottom:2.25rem}
 .band h1{color:#fff}
-.band p{color:#e6e0ff}
+.band p{color:var(--muted)}
 .intro.band{padding:2.5rem 0}
 .hero.band{padding:2.5rem 0 3rem}
 .btn{background:var(--yellow);color:#000;border-color:var(--yellow)}
@@ -79,13 +79,13 @@ input:focus,select:focus,textarea:focus{border-color:var(--text)}
 .cta-box .btn:hover{background:#2a2a2a}
 nav a.cta{background:var(--yellow);color:#000}
 nav a.cta:hover{background:#ffd966}
-.chip{border-color:#4a4580}
+.chip{border-color:#444}
 .chip[aria-pressed="true"]{background:var(--yellow);color:#000;border-color:var(--yellow)}
 .steps li::before{color:var(--yellow)}
-.way:hover{background:#221e44}
-input,select,textarea{border-color:#4a4580}
+.way:hover{background:#1e1e1e}
+input,select,textarea{border-color:#444}
 input:focus,select:focus,textarea:focus{border-color:var(--yellow)}
-footer{background:var(--deep);border-top:0;color:#cfc9ee}
+footer{background:#000;border-top:1px solid var(--line);color:var(--muted)}
 
 /* ===== Hamburger ===== */
 .menu-btn{position:relative;width:48px;height:48px;min-height:0;padding:0;border:0;border-radius:50%;background:var(--yellow)}
@@ -112,6 +112,20 @@ footer{background:var(--deep);border-top:0;color:#cfc9ee}
   body.menu-open{overflow:hidden}
 }
 @media(prefers-reduced-motion:reduce){nav ul,nav ul.open li,.menu-btn span{transition:none;animation:none}}
+
+/* ===== Header colour ===== */
+header{background:#1c1c1c;border-bottom:1px solid #333;box-shadow:0 2px 14px rgba(0,0,0,.6)}
+nav a[aria-current="page"]{color:var(--yellow)}
+@media(min-width:800px){nav a:hover{background:#2c2c2c}}
+
+/* ===== Remove leftover blue ===== */
+:root{--accent:#ffc93c;--accent-hover:#ffd966;--accent-text:#ffc93c}
+nav a.cta,.chip[aria-pressed="true"]{color:#000}
+.cta-box{color:#000}
+
+/* Contact icons: black glyph on yellow circle */
+img.ico{filter:none}
+svg.ico{stroke:#000}
 </style>
 </head>
 <body>
