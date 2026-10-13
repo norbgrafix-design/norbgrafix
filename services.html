@@ -1,88 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Services | NorbGrafix Graphic Design</title>
-  <meta name="description" content="Logo and brand identity, flyer design, social media design, poster design and promotional graphics from NorbGrafix.">
-  <meta name="theme-color" content="#000000">
+<meta charset="UTF-8">
+<link rel="icon" href="images/logo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0a14">
+<title>Services | NorbGrafix Graphic Design</title>
+<meta name="description" content="Graphic design services from NorbGrafix: branding and logos, flyers and posters, social media designs and creative graphics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--accent:#3d5afe;--accent-hover:#2c46e6;--accent-text:#8aa4ff;--surface:#151515;--text:#f5f3ef;--muted:#a8a49c;--line:#2a2a2a;--focus:#8aa4ff;--head:"Bricolage Grotesque","Segoe UI",Arial,sans-serif;--body:"Figtree","Segoe UI",Arial,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);font-size:1rem;line-height:1.6}
+img{max-width:100%;display:block}a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:0;background:var(--text);color:#000;padding:.6rem 1rem;z-index:100}.skip:focus{left:0}
+header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.6rem 1rem}
+.logo img{height:40px;width:auto}
+.menu-btn{font:600 1rem var(--body);color:var(--text);background:none;border:1px solid var(--line);border-radius:8px;min-height:44px;padding:0 1rem;cursor:pointer}
+nav ul{list-style:none;margin:0;padding:0;display:none;flex-direction:column;border-top:1px solid var(--line)}
+nav ul.open{display:flex}
+nav a{display:block;padding:.9rem 1rem;text-decoration:none;font-weight:500;border-bottom:1px solid var(--line)}
+nav a[aria-current="page"]{color:var(--accent-text)}
+nav a.cta{background:var(--accent);color:#fff;font-weight:600}
+@media(min-width:800px){.menu-btn{display:none}.bar{gap:2rem}nav{margin-left:auto}nav ul{display:flex;flex-direction:row;align-items:center;gap:.25rem;border:0}nav a{border:0;padding:.5rem .9rem;border-radius:999px}nav a:hover{background:var(--surface)}nav a.cta{margin-left:.5rem}nav a.cta:hover{background:var(--accent-hover)}}
+main{max-width:1200px;margin:0 auto;padding:0 1rem 3rem}
+h1,h2,h3{font-family:var(--head);font-weight:800;letter-spacing:-.03em;margin:0}
+.intro{padding:2.25rem 0 1.5rem}
+h1{font-size:clamp(2.6rem,11vw,5.5rem);line-height:1;margin-bottom:.75rem}
+.intro p{margin:0;color:var(--muted);max-width:36ch;font-size:1.05rem}
+h2{font-size:clamp(1.7rem,6vw,2.6rem);line-height:1.1}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 1.6rem;border-radius:999px;font:600 1rem var(--body);text-decoration:none;background:var(--accent);color:#fff;border:2px solid var(--accent);cursor:pointer}
+.btn:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
+.btn.ghost{background:transparent;color:var(--text);border-color:#555}.btn.ghost:hover{border-color:var(--text)}
+.cta-box{background:var(--accent);color:#fff;border-radius:12px;padding:2.25rem 1.5rem;margin-top:3rem}
+.cta-box h2{margin-bottom:1.5rem;max-width:18ch}
+.cta-box .btn{background:#fff;color:#000;border-color:#fff}.cta-box .btn:hover{background:#e8e8e8;border-color:#e8e8e8}
+@media(min-width:800px){.cta-box{padding:4rem 3rem}}
+footer{border-top:1px solid var(--line);padding:2rem 1rem;text-align:center;color:var(--muted);font-size:.9rem}
+footer img{height:36px;width:auto;margin:0 auto .75rem}footer a{display:inline-block;padding:.5rem}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
-  <!-- Favicon placeholder: uses your logo. Replace with a square favicon.png when you have one. -->
-  <link rel="icon" href="images/logo.png">
+.svc{list-style:none;margin:0;padding:0}
+.svc li{padding:1.5rem 0;border-top:1px solid var(--line)}
+.svc li:last-child{border-bottom:1px solid var(--line)}
+.svc h2{font-size:clamp(1.5rem,5.5vw,2.2rem);margin-bottom:.5rem}
+.svc p{margin:0;color:var(--muted);max-width:55ch}
+.svc ul{list-style:none;margin:.9rem 0 0;padding:0;color:var(--text)}
+.svc ul li{padding:.15rem 0;border:0}
+@media(min-width:800px){.svc li{display:grid;grid-template-columns:1fr 1.3fr;gap:3rem;padding:2.25rem 0}.svc h2{margin:0}}
+.steps{margin:2.5rem 0 0}
+.steps h2{margin-bottom:1.25rem}
+.steps ol{margin:0;padding:0;list-style:none;display:grid;gap:12px;counter-reset:s}
+.steps li{counter-increment:s;background:var(--surface);border-radius:10px;padding:1.25rem}
+.steps li::before{content:counter(s);display:block;font:800 1.8rem var(--head);margin-bottom:.35rem;color:var(--accent-text)}
+.steps strong{display:block;font-size:1.1rem}
+.steps span{color:var(--muted)}
+@media(min-width:800px){.steps ol{grid-template-columns:repeat(3,1fr)}}
 
-  <!-- Fonts (Google Fonts). The site still works without them using system fonts. -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+/* ===== Theme: violet + yellow ===== */
+:root{--bg:#0b0a14;--surface:#181530;--line:#2c2850;--muted:#b4b0c8;--violet:#5b3df5;--yellow:#ffc93c;--deep:#1a1050}
+.band{background:var(--violet);box-shadow:0 0 0 100vmax var(--violet);clip-path:inset(0 -100vmax);color:#fff;margin-bottom:2.25rem}
+.band h1{color:#fff}
+.band p{color:#e6e0ff}
+.intro.band{padding:2.5rem 0}
+.hero.band{padding:2.5rem 0 3rem}
+.btn{background:var(--yellow);color:#000;border-color:var(--yellow)}
+.btn:hover{background:#ffd966;border-color:#ffd966}
+.btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+.btn.ghost:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.cta-box{background:var(--yellow);color:#000}
+.cta-box .btn{background:#000;color:var(--yellow);border-color:#000}
+.cta-box .btn:hover{background:#2a2a2a}
+nav a.cta{background:var(--yellow);color:#000}
+nav a.cta:hover{background:#ffd966}
+.chip{border-color:#4a4580}
+.chip[aria-pressed="true"]{background:var(--yellow);color:#000;border-color:var(--yellow)}
+.steps li::before{color:var(--yellow)}
+.way:hover{background:#221e44}
+input,select,textarea{border-color:#4a4580}
+input:focus,select:focus,textarea:focus{border-color:var(--yellow)}
+footer{background:var(--deep);border-top:0;color:#cfc9ee}
 
-  <link rel="stylesheet" href="style.css">
+/* ===== Hamburger ===== */
+.menu-btn{position:relative;width:48px;height:48px;min-height:0;padding:0;border:0;border-radius:50%;background:var(--yellow)}
+.menu-btn span{position:absolute;left:14px;right:14px;height:2.5px;border-radius:2px;background:#000;transition:transform .25s ease,top .25s ease,opacity .2s ease}
+.menu-btn span:nth-child(1){top:16.5px}
+.menu-btn span:nth-child(2){top:22.75px}
+.menu-btn span:nth-child(3){top:29px}
+.menu-btn[aria-expanded="true"] span:nth-child(1){top:22.75px;transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){top:22.75px;transform:rotate(-45deg)}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media(max-width:799px){
+  .bar{height:68px;padding-top:0;padding-bottom:0}
+  .menu-btn{margin-left:auto}
+  nav ul{display:flex;position:absolute;top:100%;left:0;right:0;height:calc(100vh - 68px);height:calc(100dvh - 68px);background:var(--violet);border:0;padding:1rem 1.25rem 2rem;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .25s ease,transform .25s ease,visibility 0s linear .25s}
+  nav ul.open{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+  nav a{font:800 2rem/1.1 var(--head);letter-spacing:-.02em;color:#fff;padding:1.05rem 0;border-bottom:1px solid rgba(255,255,255,.22)}
+  nav a[aria-current="page"]{color:var(--yellow)}
+  nav a.cta{margin-top:1.75rem;border:0;border-radius:999px;text-align:center;font:600 1.1rem var(--body);letter-spacing:0;padding:1rem;background:var(--yellow);color:#000}
+  nav ul.open li{animation:rise .35s ease both}
+  nav ul.open li:nth-child(2){animation-delay:.04s}nav ul.open li:nth-child(3){animation-delay:.08s}
+  nav ul.open li:nth-child(4){animation-delay:.12s}nav ul.open li:nth-child(5){animation-delay:.16s}
+  nav ul.open li:nth-child(6){animation-delay:.2s}
+  body.menu-open{overflow:hidden}
+}
+@media(prefers-reduced-motion:reduce){nav ul,nav ul.open li,.menu-btn span{transition:none;animation:none}}
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+<a class="skip" href="#main">Skip to content</a>
+<header><div class="bar">
+<a class="logo" href="index.html"><img src="images/logo.png" alt="NorbGrafix logo"></a>
+<button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+<nav aria-label="Main"><ul id="menu">
+<li><a href="index.html">Home</a></li>
+<li><a href="portfolio.html">Portfolio</a></li>
+<li><a href="index.html#about">About</a></li>
+<li><a href="services.html" aria-current="page">Services</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a class="cta" href="contact.html">Let’s work together</a></li>
+</ul></nav>
+</div></header>
+<main id="main">
 
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="NorbGrafix, home">
-      <img src="images/logo.png" alt="NorbGrafix logo">
-    </a>
+<section class="intro band">
+<h1>Services</h1>
+<p>Design that helps your brand look clear, professional and easy to remember.</p>
+</section>
 
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-      <span class="nav-toggle-bars" aria-hidden="true"></span>
-      <span class="visually-hidden">Menu</span>
-    </button>
+<ul class="svc">
+<li><h2>Branding and logos</h2><div><p>A visual identity that makes your business recognisable everywhere it appears.</p>
+<ul><li>Logo design</li><li>Colours and fonts</li><li>Brand guidelines</li></ul></div></li>
+<li><h2>Flyers and posters</h2><div><p>Print-ready designs for events, promotions and announcements that people notice.</p>
+<ul><li>Event flyers</li><li>Promotional posters</li><li>Business adverts</li></ul></div></li>
+<li><h2>Social media designs</h2><div><p>Consistent posts and graphics that keep your pages looking professional.</p>
+<ul><li>Post and story designs</li><li>Campaign graphics</li><li>Profile and cover images</li></ul></div></li>
+<li><h2>Creative and promotional graphics</h2><div><p>Custom visuals for anything else your business needs to communicate.</p>
+<ul><li>Digital adverts</li><li>Presentations and mockups</li><li>Custom requests</li></ul></div></li>
+</ul>
 
-    <nav id="site-nav" class="site-nav" aria-label="Main">
-      <ul class="nav-links">
-        <li><a href="index.html"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg><span>Home</span></a></li>
-        <li><a href="portfolio.html"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="16" rx="1"/><circle cx="9" cy="10" r="1.6"/><path d="M3 18l6-5 4 3 3-2 5 4"/></svg><span>Portfolio</span></a></li>
-        <li><a href="index.html#about"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg><span>About</span></a></li>
-        <li><a href="services.html" aria-current="page"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 12.5l9 5 9-5"/><path d="M3 17l9 5 9-5"/></svg><span>Services</span></a></li>
-        <li><a href="contact.html"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 7 9-7"/></svg><span>Contact</span></a></li>
-        <li><a class="btn btn-cta" href="contact.html"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 5h16v11H9l-5 4z"/></svg><span>Let’s Work</span></a></li>
-      </ul>
-    </nav>
-  </header>
+<section class="steps">
+<h2>How it works</h2>
+<ol>
+<li><strong>Tell me what you need</strong><span>Send your idea, text and any images or logos you already have.</span></li>
+<li><strong>Review the design</strong><span>You see the first design and tell me what to change.</span></li>
+<li><strong>Get your files</strong><span>Once you approve, you receive the final files, ready to use.</span></li>
+</ol>
+</section>
 
-  <main id="main">
-    <section class="section services page-top" aria-labelledby="services-title">
-      <div class="container">
-        <h1 class="section-title" id="services-title">Services</h1>
-        <ul class="service-list">
-          <li class="service">
-            <h2>Logo &amp; Brand Identity</h2>
-            <p>Logos and visual systems that make a brand recognisable on print and on screen.</p>
-          </li>
-          <li class="service">
-            <h2>Flyer Design</h2>
-            <p>Event and promotional flyers built to be read quickly and remembered.</p>
-          </li>
-          <li class="service">
-            <h2>Social Media Design</h2>
-            <p>Post and story graphics that keep a page consistent and stand out in the feed.</p>
-          </li>
-          <li class="service">
-            <h2>Poster Design</h2>
-            <p>Poster layouts with clear hierarchy for events, campaigns and announcements.</p>
-          </li>
-          <li class="service">
-            <h2>Promotional Graphics</h2>
-            <p>Banners, ads and campaign visuals that carry one clear message.</p>
-          </li>
-        </ul>
-        <a class="btn btn-cta btn-large" href="contact.html">Start a project</a>
-      </div>
-    </section>
-  </main>
+<div class="cta-box">
+<h2>Ready to start? Tell me about your project.</h2>
+<a class="btn" href="contact.html">Contact me</a>
+</div>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <a class="footer-brand" href="index.html" aria-label="NorbGrafix, home">
-        <img src="images/logo.png" alt="NorbGrafix logo">
-      </a>
-      <p>&copy; <span id="year">2026</span> NorbGrafix. All rights reserved.</p>
-      <a class="footer-top" href="#main">Back to top</a>
-    </div>
-  </footer>
+</main>
+<footer>
+<a href="index.html"><img src="images/logo.png" alt="NorbGrafix logo"></a>
+<p>© 2026 NorbGrafix. All rights reserved.</p>
+<a href="#main">Back to top</a>
+</footer>
+<script src="social.js"></script>
+<script>
+var menuBtn=document.getElementById('menuBtn'),menu=document.getElementById('menu');
+menuBtn.addEventListener('click',function(){var o=menu.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o)});
 
-  <script src="script.js"></script>
+</script>
 </body>
 </html>

@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+<link rel="icon" href="images/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#0b0a14">
   <title>Portfolio | NorbGrafix Graphic Design</title>
   <meta name="description" content="Browse NorbGrafix graphic design work: branding, flyers, social media designs, posters and creative design.">
 
@@ -14,6 +15,9 @@
   <style>
     :root {
       --bg: #000;
+      --accent: #3d5afe;
+      --accent-hover: #2c46e6;
+      --accent-text: #8aa4ff;
       --surface: #151515;
       --text: #f5f3ef;
       --muted: #a8a49c;
@@ -71,8 +75,8 @@
       text-decoration: none; font-weight: 500;
       border-bottom: 1px solid var(--line);
     }
-    nav a[aria-current="page"] { color: var(--muted); }
-    nav a.cta { background: var(--text); color: #000; font-weight: 600; }
+    nav a[aria-current="page"] { color: var(--accent-text); }
+    nav a.cta { background: var(--accent); color: #fff; font-weight: 600; }
 
     @media (min-width: 800px) {
       .menu-btn { display: none; }
@@ -82,7 +86,7 @@
       nav a { border: 0; padding: .5rem .9rem; border-radius: 999px; }
       nav a:hover { background: var(--surface); }
       nav a.cta { margin-left: .5rem; }
-      nav a.cta:hover { background: #fff; }
+      nav a.cta:hover { background: var(--accent-hover); }
     }
 
     /* ---------- Intro ---------- */
@@ -111,7 +115,7 @@
       border: 1px solid #444; border-radius: 999px;
       min-height: 44px; padding: 0 1.1rem; cursor: pointer;
     }
-    .chip[aria-pressed="true"] { background: var(--text); color: #000; border-color: var(--text); font-weight: 600; }
+    .chip[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: var(--accent); font-weight: 600; }
 
     /* ---------- Gallery ---------- */
     .grid { columns: 2; column-gap: 10px; }
@@ -154,7 +158,57 @@
     footer a { display: inline-block; padding: .5rem; }
 
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-  </style>
+  
+/* ===== Theme: violet + yellow ===== */
+:root{--bg:#0b0a14;--surface:#181530;--line:#2c2850;--muted:#b4b0c8;--violet:#5b3df5;--yellow:#ffc93c;--deep:#1a1050}
+.band{background:var(--violet);box-shadow:0 0 0 100vmax var(--violet);clip-path:inset(0 -100vmax);color:#fff;margin-bottom:2.25rem}
+.band h1{color:#fff}
+.band p{color:#e6e0ff}
+.intro.band{padding:2.5rem 0}
+.hero.band{padding:2.5rem 0 3rem}
+.btn{background:var(--yellow);color:#000;border-color:var(--yellow)}
+.btn:hover{background:#ffd966;border-color:#ffd966}
+.btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+.btn.ghost:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.cta-box{background:var(--yellow);color:#000}
+.cta-box .btn{background:#000;color:var(--yellow);border-color:#000}
+.cta-box .btn:hover{background:#2a2a2a}
+nav a.cta{background:var(--yellow);color:#000}
+nav a.cta:hover{background:#ffd966}
+.chip{border-color:#4a4580}
+.chip[aria-pressed="true"]{background:var(--yellow);color:#000;border-color:var(--yellow)}
+.steps li::before{color:var(--yellow)}
+.way:hover{background:#221e44}
+input,select,textarea{border-color:#4a4580}
+input:focus,select:focus,textarea:focus{border-color:var(--yellow)}
+footer{background:var(--deep);border-top:0;color:#cfc9ee}
+
+/* ===== Hamburger ===== */
+.menu-btn{position:relative;width:48px;height:48px;min-height:0;padding:0;border:0;border-radius:50%;background:var(--yellow)}
+.menu-btn span{position:absolute;left:14px;right:14px;height:2.5px;border-radius:2px;background:#000;transition:transform .25s ease,top .25s ease,opacity .2s ease}
+.menu-btn span:nth-child(1){top:16.5px}
+.menu-btn span:nth-child(2){top:22.75px}
+.menu-btn span:nth-child(3){top:29px}
+.menu-btn[aria-expanded="true"] span:nth-child(1){top:22.75px;transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){top:22.75px;transform:rotate(-45deg)}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media(max-width:799px){
+  .bar{height:68px;padding-top:0;padding-bottom:0}
+  .menu-btn{margin-left:auto}
+  nav ul{display:flex;position:absolute;top:100%;left:0;right:0;height:calc(100vh - 68px);height:calc(100dvh - 68px);background:var(--violet);border:0;padding:1rem 1.25rem 2rem;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .25s ease,transform .25s ease,visibility 0s linear .25s}
+  nav ul.open{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+  nav a{font:800 2rem/1.1 var(--head);letter-spacing:-.02em;color:#fff;padding:1.05rem 0;border-bottom:1px solid rgba(255,255,255,.22)}
+  nav a[aria-current="page"]{color:var(--yellow)}
+  nav a.cta{margin-top:1.75rem;border:0;border-radius:999px;text-align:center;font:600 1.1rem var(--body);letter-spacing:0;padding:1rem;background:var(--yellow);color:#000}
+  nav ul.open li{animation:rise .35s ease both}
+  nav ul.open li:nth-child(2){animation-delay:.04s}nav ul.open li:nth-child(3){animation-delay:.08s}
+  nav ul.open li:nth-child(4){animation-delay:.12s}nav ul.open li:nth-child(5){animation-delay:.16s}
+  nav ul.open li:nth-child(6){animation-delay:.2s}
+  body.menu-open{overflow:hidden}
+}
+@media(prefers-reduced-motion:reduce){nav ul,nav ul.open li,.menu-btn span{transition:none;animation:none}}
+</style>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -162,7 +216,7 @@
   <header>
     <div class="bar">
       <a class="logo" href="index.html"><img src="images/logo.png" alt="NorbGrafix logo"></a>
-      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
       <nav aria-label="Main">
         <ul id="menu">
           <li><a href="index.html">Home</a></li>
@@ -177,7 +231,7 @@
   </header>
 
   <main id="main">
-    <section class="intro">
+    <section class="intro band">
       <h1>Portfolio</h1>
       <p>Branding, flyers, posters and social media designs by NorbGrafix.</p>
     </section>
@@ -260,6 +314,7 @@
     <a href="#main">Back to top</a>
   </footer>
 
+  <script src="social.js"></script>
   <script>
     // Mobile menu
     var menuBtn = document.getElementById('menuBtn');
