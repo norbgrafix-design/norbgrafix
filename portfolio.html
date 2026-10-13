@@ -3,156 +3,305 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
   <title>Portfolio | NorbGrafix Graphic Design</title>
   <meta name="description" content="Browse NorbGrafix graphic design work: branding, flyers, social media designs, posters and creative design.">
-  <meta name="theme-color" content="#000000">
 
-  <!-- Favicon placeholder: uses your logo. Replace with a square favicon.png when you have one. -->
-  <link rel="icon" href="images/logo.png">
-
-  <!-- Fonts (Google Fonts). The site still works without them using system fonts. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --bg: #000;
+      --surface: #151515;
+      --text: #f5f3ef;
+      --muted: #a8a49c;
+      --line: #2a2a2a;
+      --focus: #8aa4ff;
+      --head: "Bricolage Grotesque", "Segoe UI", Arial, sans-serif;
+      --body: "Figtree", "Segoe UI", Arial, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--body);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+
+    .skip {
+      position: absolute; left: -999px; top: 0;
+      background: var(--text); color: #000; padding: .6rem 1rem; z-index: 100;
+    }
+    .skip:focus { left: 0; }
+
+    /* ---------- Header ---------- */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+    }
+    .bar {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: .6rem 1rem;
+    }
+    .logo img { height: 40px; width: auto; }
+    .menu-btn {
+      font: 600 1rem var(--body);
+      color: var(--text); background: none;
+      border: 1px solid var(--line); border-radius: 8px;
+      min-height: 44px; padding: 0 1rem; cursor: pointer;
+    }
+    nav ul {
+      list-style: none; margin: 0; padding: 0;
+      display: none; flex-direction: column;
+      border-top: 1px solid var(--line);
+    }
+    nav ul.open { display: flex; }
+    nav a {
+      display: block; padding: .9rem 1rem;
+      text-decoration: none; font-weight: 500;
+      border-bottom: 1px solid var(--line);
+    }
+    nav a[aria-current="page"] { color: var(--muted); }
+    nav a.cta { background: var(--text); color: #000; font-weight: 600; }
+
+    @media (min-width: 800px) {
+      .menu-btn { display: none; }
+      .bar { gap: 2rem; }
+      nav { margin-left: auto; }
+      nav ul { display: flex; flex-direction: row; align-items: center; gap: .25rem; border: 0; }
+      nav a { border: 0; padding: .5rem .9rem; border-radius: 999px; }
+      nav a:hover { background: var(--surface); }
+      nav a.cta { margin-left: .5rem; }
+      nav a.cta:hover { background: #fff; }
+    }
+
+    /* ---------- Intro ---------- */
+    main { max-width: 1200px; margin: 0 auto; padding: 0 1rem 3rem; }
+    .intro { padding: 2.25rem 0 1.25rem; }
+    h1 {
+      font-family: var(--head); font-weight: 800;
+      font-size: clamp(2.6rem, 11vw, 5.5rem);
+      line-height: 1; letter-spacing: -0.03em;
+      margin: 0 0 .75rem;
+    }
+    .intro p { margin: 0; color: var(--muted); max-width: 34ch; font-size: 1.05rem; }
+
+    /* ---------- Filters ---------- */
+    .filters {
+      display: flex; gap: .5rem;
+      overflow-x: auto; padding: .25rem 0 1rem;
+      margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem;
+      scrollbar-width: none;
+    }
+    .filters::-webkit-scrollbar { display: none; }
+    .chip {
+      flex: 0 0 auto;
+      font: 500 .95rem var(--body);
+      color: var(--text); background: transparent;
+      border: 1px solid #444; border-radius: 999px;
+      min-height: 44px; padding: 0 1.1rem; cursor: pointer;
+    }
+    .chip[aria-pressed="true"] { background: var(--text); color: #000; border-color: var(--text); font-weight: 600; }
+
+    /* ---------- Gallery ---------- */
+    .grid { columns: 2; column-gap: 10px; }
+    @media (min-width: 700px)  { .grid { columns: 3; column-gap: 14px; } }
+    @media (min-width: 1100px) { .grid { columns: 4; } }
+
+    .item { break-inside: avoid; margin: 0 0 10px; }
+    @media (min-width: 700px) { .item { margin-bottom: 14px; } }
+    .item[hidden] { display: none; }
+
+    .open-btn {
+      display: block; width: 100%; padding: 0;
+      border: 0; border-radius: 8px; overflow: hidden;
+      background: var(--surface); cursor: zoom-in;
+    }
+    .open-btn img { width: 100%; height: auto; }
+    .item figcaption { font-size: .85rem; color: var(--muted); padding: .35rem .15rem 0; }
+
+    .empty { color: var(--muted); padding: 2rem 0; }
+
+    /* ---------- Lightbox ---------- */
+    dialog {
+      border: 0; padding: 0; background: transparent; color: var(--text);
+      width: 100%; height: 100%; max-width: none; max-height: none;
+    }
+    dialog[open] { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .75rem; }
+    dialog::backdrop { background: rgba(0, 0, 0, .94); }
+    dialog img { max-width: 94vw; max-height: 78vh; width: auto; height: auto; object-fit: contain; border-radius: 6px; }
+    dialog p { margin: 0; color: var(--muted); }
+    .close {
+      position: absolute; top: .75rem; right: .75rem;
+      width: 48px; height: 48px; border-radius: 50%;
+      font: 400 1.6rem/1 var(--body);
+      color: #000; background: var(--text); border: 0; cursor: pointer;
+    }
+
+    /* ---------- Footer ---------- */
+    footer { border-top: 1px solid var(--line); padding: 2rem 1rem; text-align: center; color: var(--muted); font-size: .9rem; }
+    footer img { height: 36px; width: auto; margin: 0 auto .75rem; }
+    footer a { display: inline-block; padding: .5rem; }
+
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip" href="#main">Skip to content</a>
 
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="NorbGrafix, home">
-      <img src="images/logo.png" alt="NorbGrafix logo">
-    </a>
-
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-      <span class="nav-toggle-bars" aria-hidden="true"></span>
-      <span class="visually-hidden">Menu</span>
-    </button>
-
-    <nav id="site-nav" class="site-nav" aria-label="Main">
-      <ul class="nav-links">
-        <li><a href="index.html"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg><span>Home</span></a></li>
-        <li><a href="portfolio.html" aria-current="page"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="16" rx="1"/><circle cx="9" cy="10" r="1.6"/><path d="M3 18l6-5 4 3 3-2 5 4"/></svg><span>Portfolio</span></a></li>
-        <li><a href="index.html#about"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg><span>About</span></a></li>
-        <li><a href="services.html"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 12.5l9 5 9-5"/><path d="M3 17l9 5 9-5"/></svg><span>Services</span></a></li>
-        <li><a href="contact.html"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 7 9-7"/></svg><span>Contact</span></a></li>
-        <li><a class="btn btn-cta" href="contact.html"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 5h16v11H9l-5 4z"/></svg><span>Let’s Work</span></a></li>
-      </ul>
-    </nav>
+  <header>
+    <div class="bar">
+      <a class="logo" href="index.html"><img src="images/logo.png" alt="NorbGrafix logo"></a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
+      <nav aria-label="Main">
+        <ul id="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html" aria-current="page">Portfolio</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a class="cta" href="contact.html">Let’s work together</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main id="main">
-    <section class="section portfolio page-top" aria-labelledby="portfolio-title">
-      <div class="container">
-        <div class="portfolio-head">
-          <h1 class="section-title" id="portfolio-title">Portfolio</h1>
-          <div class="filters" role="group" aria-label="Filter portfolio by category">
-            <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">All</button>
-            <button type="button" class="filter" data-filter="branding" aria-pressed="false">Branding</button>
-            <button type="button" class="filter" data-filter="flyers" aria-pressed="false">Flyers</button>
-            <button type="button" class="filter" data-filter="social-media" aria-pressed="false">Social Media</button>
-            <button type="button" class="filter" data-filter="posters" aria-pressed="false">Posters</button>
-            <button type="button" class="filter" data-filter="creative-design" aria-pressed="false">Creative Design</button>
-          </div>
-        </div>
-
-        <!--
-          HOW TO ADD MORE DESIGNS
-          1. Copy one whole <li class="work"> ... </li> block below.
-          2. Paste it at the end of the list (before </ul>).
-          3. Change the image path, alt text, data-category, data-caption and the label.
-          The filter and lightbox pick up new items automatically. No JavaScript changes needed.
-          data-category values: branding, flyers, social-media, posters, creative-design
-        -->
-        <ul class="gallery">
-          <li class="work" data-category="branding">
-            <button class="work-btn" type="button" data-caption="Branding">
-              <img src="images/Untitled-1.jpg" alt="Branding design by NorbGrafix, image 1" loading="lazy">
-            </button>
-            <p class="work-label">Branding</p>
-          </li>
-          <li class="work" data-category="posters">
-            <button class="work-btn" type="button" data-caption="Posters">
-              <img src="images/Coming soon.jpg" alt="Poster design by NorbGrafix, image 2" loading="lazy">
-            </button>
-            <p class="work-label">Posters</p>
-          </li>
-          <li class="work" data-category="flyers">
-            <button class="work-btn" type="button" data-caption="Flyers">
-              <img src="images/image6.jpg" alt="Flyer design by NorbGrafix, image 3" loading="lazy">
-            </button>
-            <p class="work-label">Flyers</p>
-          </li>
-          <li class="work" data-category="social-media">
-            <button class="work-btn" type="button" data-caption="Social Media">
-              <img src="images/G&G.jpg" alt="Social media design by NorbGrafix, image 4" loading="lazy">
-            </button>
-            <p class="work-label">Social Media</p>
-          </li>
-          <li class="work" data-category="creative-design">
-            <button class="work-btn" type="button" data-caption="Creative Design">
-              <img src="images/House party flyer.jfif" alt="Creative design by NorbGrafix, image 5" loading="lazy">
-            </button>
-          
-          </li>
-          <li class="work" data-category="branding">
-            <button class="work-btn" type="button" data-caption="Branding">
-              <img src="images/logo.png" alt="Branding design by NorbGrafix, image 6" loading="lazy">
-            </button>
-            <p class="work-label">Branding</p>
-          </li>
-          <li class="work" data-category="posters">
-            <button class="work-btn" type="button" data-caption="Posters">
-              <img src="images/rebrand.jpg" alt="Poster design by NorbGrafix, image 7" loading="lazy">
-            </button>
-            <p class="work-label">Posters</p>
-          </li>
-          <li class="work" data-category="flyers">
-            <button class="work-btn" type="button" data-caption="Flyers">
-              <img src="images/Muslim branding _ Islam Flyer _ Flyer design.jfif" alt="Flyer design by NorbGrafix, image 8" loading="lazy">
-            </button>
-            <p class="work-label">Flyers</p>
-          </li>
-          <li class="work" data-category="social-media">
-            <button class="work-btn" type="button" data-caption="Social Media">
-              <img src="images/party.jfif" alt="Social media design by NorbGrafix, image 9" loading="lazy">
-            </button>
-
-           <li class="work" data-category="branding">
-            <button class="work-btn" type="button" data-caption="Branding">
-              <img src="images/image7.jfif" alt="Branding design by NorbGrafix, image 1" loading="lazy">
-            </button>
-           
-          </li>
-        </ul>
-      </div>
+    <section class="intro">
+      <h1>Portfolio</h1>
+      <p>Branding, flyers, posters and social media designs by NorbGrafix.</p>
     </section>
+
+    <div class="filters" role="group" aria-label="Filter by category">
+      <button class="chip" data-filter="all" aria-pressed="true">All</button>
+      <button class="chip" data-filter="Branding" aria-pressed="false">Branding</button>
+      <button class="chip" data-filter="Flyers" aria-pressed="false">Flyers</button>
+      <button class="chip" data-filter="Social Media" aria-pressed="false">Social Media</button>
+      <button class="chip" data-filter="Posters" aria-pressed="false">Posters</button>
+      <button class="chip" data-filter="Creative Design" aria-pressed="false">Creative Design</button>
+    </div>
+
+    <!--
+      TO ADD A NEW DESIGN: copy one <figure> block below, then change
+      data-category, the image file name, the alt text and the caption.
+      Category must match a filter button exactly.
+    -->
+    <div class="grid" id="grid">
+
+      <figure class="item" data-category="Branding">
+        <button class="open-btn" type="button"><img src="images/Untitled-1.jpg" alt="Branding design by NorbGrafix" loading="lazy" decoding="async"></button>
+        <figcaption>Branding</figcaption>
+      </figure>
+
+      <figure class="item" data-category="Flyers">
+        <button class="open-btn" type="button"><img src="images/image6.jpg" alt="Flyer design by NorbGrafix" loading="lazy" decoding="async"></button>
+        <figcaption>Flyers</figcaption>
+      </figure>
+
+      <figure class="item" data-category="Social Media">
+        <button class="open-btn" type="button"><img src="images/G%26G.jpg" alt="Social media design for G&amp;G" loading="lazy" decoding="async"></button>
+        <figcaption>Social Media</figcaption>
+      </figure>
+
+      <figure class="item" data-category="Flyers">
+        <button class="open-btn" type="button"><img src="images/House%20party%20flyer.jfif" alt="House party flyer design" loading="lazy" decoding="async"></button>
+        <figcaption>Flyers</figcaption>
+      </figure>
+
+      <figure class="item" data-category="Branding">
+        <button class="open-btn" type="button"><img src="images/logo.png" alt="NorbGrafix logo design" loading="lazy" decoding="async"></button>
+        <figcaption>Branding</figcaption>
+      </figure>
+
+      <figure class="item" data-category="Posters">
+        <button class="open-btn" type="button"><img src="images/rebrand.jpg" alt="Rebrand poster design" loading="lazy" decoding="async"></button>
+        <figcaption>Posters</figcaption>
+      </figure>
+
+      <figure class="item" data-category="Social Media">
+        <button class="open-btn" type="button"><img src="images/party.jfif" alt="Party social media design" loading="lazy" decoding="async"></button>
+        <figcaption>Social Media</figcaption>
+      </figure>
+
+      <figure class="item" data-category="Branding">
+        <button class="open-btn" type="button"><img src="images/image7.jfif" alt="Branding design by NorbGrafix" loading="lazy" decoding="async"></button>
+        <figcaption>Branding</figcaption>
+      </figure>
+
+      <!--
+        Removed: "Coming soon.jpg" (placeholder) and
+        "Muslim branding _ Islam Flyer _ Flyer design.jfif"
+        (only add it back if you designed it yourself).
+      -->
+
+    </div>
+    <p class="empty" id="empty" hidden>No designs in this category yet.</p>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <a class="footer-brand" href="index.html" aria-label="NorbGrafix, home">
-        <img src="images/logo.png" alt="NorbGrafix logo">
-      </a>
-      <p>&copy; <span id="year">2026</span> NorbGrafix. All rights reserved.</p>
-      <a class="footer-top" href="#main">Back to top</a>
-    </div>
+  <dialog id="lightbox" aria-label="Enlarged design">
+    <button class="close" id="closeBtn" type="button" aria-label="Close">×</button>
+    <img id="lbImg" src="" alt="">
+    <p id="lbCap"></p>
+  </dialog>
+
+  <footer>
+    <a href="index.html"><img src="images/logo.png" alt="NorbGrafix logo"></a>
+    <p>© 2026 NorbGrafix. All rights reserved.</p>
+    <a href="#main">Back to top</a>
   </footer>
 
-  <!-- Lightbox for portfolio previews -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Design preview" hidden>
-    <button class="lb-close" type="button" aria-label="Close preview">Close</button>
-    <figure class="lb-figure">
-      <img class="lb-img" id="lb-img" src="" alt="">
-      <figcaption class="lb-cap" id="lb-cap"></figcaption>
-    </figure>
-    <div class="lb-nav">
-      <button class="lb-prev" type="button" aria-label="Previous design">Previous</button>
-      <button class="lb-next" type="button" aria-label="Next design">Next</button>
-    </div>
-  </div>
+  <script>
+    // Mobile menu
+    var menuBtn = document.getElementById('menuBtn');
+    var menu = document.getElementById('menu');
+    menuBtn.addEventListener('click', function () {
+      var open = menu.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open);
+    });
 
-  <script src="script.js"></script>
+    // Category filter
+    var chips = document.querySelectorAll('.chip');
+    var items = document.querySelectorAll('.item');
+    var empty = document.getElementById('empty');
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var f = chip.dataset.filter;
+        var shown = 0;
+        chips.forEach(function (c) { c.setAttribute('aria-pressed', c === chip); });
+        items.forEach(function (it) {
+          var match = f === 'all' || it.dataset.category === f;
+          it.hidden = !match;
+          if (match) shown++;
+        });
+        empty.hidden = shown !== 0;
+      });
+    });
+
+    // Tap an image to view it larger
+    var box = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lbImg');
+    var lbCap = document.getElementById('lbCap');
+    document.querySelectorAll('.open-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var img = btn.querySelector('img');
+        lbImg.src = img.currentSrc || img.src;
+        lbImg.alt = img.alt;
+        lbCap.textContent = btn.parentElement.dataset.category;
+        box.showModal();
+      });
+    });
+    document.getElementById('closeBtn').addEventListener('click', function () { box.close(); });
+    box.addEventListener('click', function (e) { if (e.target === box) box.close(); });
+  </script>
 </body>
 </html>
